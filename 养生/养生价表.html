@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>养生价目表</title>
+    <style>
+        /* 针对竖版打印和PDF的铺满设置 */
+        @page {
+            size: A4 portrait; 
+            margin: 0; 
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            /* 关联你的 1.png 背景 */
+            background-image: url("1.png"); 
+            background-size: 100% 100%; 
+            background-repeat: no-repeat;
+            background-position: center;
+            
+            font-family: "Microsoft YaHei", "SimSun", sans-serif; 
+            color: #000000;
+            -webkit-print-color-adjust: exact; 
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 核心容器：高度从90%微调到92%，给内容更多垂直空间 */
+        .container {
+            width: 82%; 
+            height: 92%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            padding: 10px 0;
+        }
+
+        /* 顶部标题区 */
+        .header-section {
+            text-align: center;
+            margin-top: 15px;
+        }
+        h1 {
+            font-size: 36pt; /* 稍微缩小标题，省出高度空间 */
+            color: #000;
+            margin: 0 0 5px 0;
+            letter-spacing: 6px;
+            font-weight: bold;
+        }
+        .subtitle {
+            font-size: 15pt;
+            color: #111;
+            margin: 0;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* 表格区域 */
+        table {
+            width: 100%; 
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.4); 
+            margin-bottom: 2px;
+        }
+
+        th, td {
+            border: 1.5px solid #000000; 
+            padding: 10px 8px; /* 核心修改：减小内边距，大幅节省高度，防止表格溢出到第二页 */
+            text-align: center;
+            font-size: 13.5pt; /* 微调字体大小，确保清晰度 */
+            vertical-align: middle;
+            font-weight: bold; 
+        }
+
+        th {
+            background-color: rgba(245, 235, 220, 0.6);
+            font-size: 14.5pt;
+            color: #000;
+        }
+
+        /* 表头中的“会员价”特殊红字样式 */
+        .th-member-title {
+            color: #d63030;
+        }
+
+        /* 表格内容中的红色价格 */
+        .member-price {
+            color: #d63030; 
+            font-weight: bold;
+            font-size: 14.5pt;
+        }
+
+        .sub-text {
+            font-size: 10.5pt;
+            color: #333;
+            display: block;
+            margin-top: 2px;
+            font-weight: normal;
+        }
+
+        /* 底部备注：红字，且增加了绝对安全的间距 */
+        .note {
+            text-align: center;
+            font-size: 13pt;
+            color: #d63030; 
+            font-weight: bold;
+            margin-bottom: 15px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-section">
+        <h1>养生价目表</h1>
+        <div class="subtitle">（你的私人美丽安康专家）</div>
+    </div>
+
+    <table>
+        <tr>
+            <th width="28%">项目</th>
+            <th width="12%">时间</th>
+            <th width="12%">原价</th>
+            <th width="14%" class="th-member-title">会员价</th>
+            <th width="34%">功效</th>
+        </tr>
+        <tr>
+            <td>中式按摩</td>
+            <td>60分钟</td>
+            <td>128元</td>
+            <td class="member-price">99元</td>
+            <td>放松肌肉，缓解疼痛</td>
+        </tr>
+        <tr>
+            <td>睡眠调理 + 古法艾灸</td>
+            <td>60分钟</td>
+            <td>168元</td>
+            <td class="member-price">138元</td>
+            <td>高质量睡眠</td>
+        </tr>
+        <tr>
+            <td>马氏推油</td>
+            <td>60分钟</td>
+            <td>168元</td>
+            <td class="member-price">138元</td>
+            <td>疏通经络，缓解疲劳</td>
+        </tr>
+        <tr>
+            <td>姜艾推油（热油）+<br>刮痧 + 古法艾灸</td>
+            <td>60分钟</td>
+            <td>198元</td>
+            <td class="member-price">168元</td>
+            <td>去湿排寒，活血化瘀</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th width="28%">项目</th>
+            <th width="12%">时间</th>
+            <th width="12%">原价</th>
+            <th width="14%" class="th-member-title">会员价</th>
+            <th width="34%">功效</th>
+        </tr>
+        <tr>
+            <td>淋巴排毒</td>
+            <td>90分钟</td>
+            <td>288元</td>
+            <td class="member-price">239元</td>
+            <td>净化血液</td>
+        </tr>
+        <tr>
+            <td>肝胆排毒</td>
+            <td>90分钟</td>
+            <td>288元</td>
+            <td class="member-price">239元</td>
+            <td>舒肝利胆</td>
+        </tr>
+        <tr>
+            <td>运动套餐<span class="sub-text">（按摩45分钟，足疗45分钟）</span></td>
+            <td>90分钟</td>
+            <td>258元</td>
+            <td class="member-price">219元</td>
+            <td>促进血液循环、活血通络</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th width="28%">小项目</th>
+            <th width="12%">时间</th>
+            <th width="12%">原价</th>
+            <th width="14%" class="th-member-title">会员价</th>
+            <th width="34%">功效</th>
+        </tr>
+        <tr>
+            <td>手动雷火大炮灸<span class="sub-text">（+ 经络推油）</span></td>
+            <td>30分钟</td>
+            <td>108元</td>
+            <td class="member-price">84元</td>
+            <td>调理气血、宫寒、补虚固脱</td>
+        </tr>
+        <tr>
+            <td>推油 + 刮痧</td>
+            <td>30分钟</td>
+            <td>68元</td>
+            <td class="member-price">49元</td>
+            <td>排毒、祛风散寒、宽胸理气</td>
+        </tr>
+        <tr>
+            <td>推油 + 拔罐</td>
+            <td>30分钟</td>
+            <td>68元</td>
+            <td class="member-price">49元</td>
+            <td>祛湿，加强新陈代谢</td>
+        </tr>
+    </table>
+
+    <div class="note">注：本价目表为会员价，原价为非会员价；会员享受专属优惠。</div>
+</div>
+
+</body>
+</html>
